@@ -1,12 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Posts from './components/Posts/Posts';
+import AddPostForm from './components/AddPostForm/AddPostForm';
 
-function App() {
+function App () {
+
+  const [posts, setPosts] = useState([
+    { id: 1, title: 'Some title' },
+    { id: 2, title: 'Some title' },
+    { id: 3, title: 'Some title' },
+  ])
+
+  function onSubmit (newPost) {
+    setPosts([
+      ...posts,
+      {
+        id: posts.length + 1,
+        ...newPost
+      }
+    ])
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+      <div className="container">
+        <AddPostForm onSubmit={onSubmit}/>
+        <Posts posts={posts} title="Some Posts"/>
+      </div>
     </div>
   );
 }
