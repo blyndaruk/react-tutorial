@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 
-import BaseInput from '../UI/Input/BaseInput';
-import BaseButton from '../UI/Button/BaseButton';
+import BaseButton from '../UI/Button';
+import BaseInput from '../UI/Input';
 
 import './AddPostForm.scss'
 
 const AddPostForm = (props) => {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+  const [post, setPost] = useState({ title: '', description: '' })
 
   function addPost(e) {
     e.preventDefault()
-    props.onSubmit({ title, description })
+    if (!post.title || !post.description) return
+    props.onSubmit({ ...post, id: Date.now() })
+    setPost({ title: '', description: '' })
   }
 
   return (
@@ -20,18 +21,18 @@ const AddPostForm = (props) => {
         id="title"
         type="text"
         placeholder="Write title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        value={post.title}
+        onChange={(e) => setPost({ ...post, title: e.target.value })}
       />
       <BaseInput
         id="description"
         type="text"
         placeholder="Write description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        value={post.description}
+        onChange={(e) => setPost({ ...post, description: e.target.value })}
       />
       <div className="add-post-form__actions">
-        <BaseButton type="button" onClick={addPost}>
+        <BaseButton type="submit" onClick={addPost}>
           <span>Add Post</span>
         </BaseButton>
       </div>
