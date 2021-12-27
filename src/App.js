@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import Posts from './components/Posts';
 import PostsFilter from './components/PostsFilter';
 import Modal from './components/Modal';
-import BaseButton from './components/UI/Button';
+import AddPostForm from './components/AddPostForm';
 
 function App () {
   const [posts, setPosts] = useState([
@@ -45,7 +45,9 @@ function App () {
         <PostsFilter filter={filter} setFilter={setFilter} setModalActive={setModalActive} />
         <hr />
         <Posts posts={sortedAndSearchedPosts} title="Some Index" deletePost={deletePost} />
-        <Modal type="add-post" width="500px" active={modalActive} setActive={setModalActive} onSubmit={onSubmit} />
+        <Modal type="add-post" width="500px" active={modalActive} setActive={setModalActive}>
+          <AddPostForm onSubmit={onSubmit} />
+        </Modal>
       </div>
     </div>
   );
