@@ -1,0 +1,22 @@
+.posts-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+
+  select {
+    width: 240px;
+    margin-right: 10px;
+  }
+
+  button {
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  select, input {
+    height: 42px;
+  }
+}
+

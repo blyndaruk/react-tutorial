@@ -11,7 +11,7 @@ const Post = ({ post, remove }) => {
 
   return (
     <div className="post">
-      {title && <h2 className="post__title">{title} with id:{id}</h2>}
+      {title && <h2 className="post__title">{title} <span style={{ fontSize: '70%' }}>(id:{id})</span></h2>}
       {description && (
         <div className="post__description">
           <p>{description}</p>
