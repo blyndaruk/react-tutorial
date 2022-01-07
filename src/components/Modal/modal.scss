@@ -9,24 +9,54 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.4);
-  transition: all .3s ease;
+  transition: all .3s ease .3s;
   opacity: 0;
   pointer-events: none;
-
-  &.is-active {
-    opacity: 1;
-    pointer-events: auto;
-
-    #{$this}__content {
-      transform: scale(1);
-    }
-  }
 
   &__content {
     padding: 20px;
     transform: scale(0);
     background-color: #fff;
     border-radius: 14px;
-    transition: all .3s ease;
+    transition: all .3s ease .3s;
+  }
+
+  &.modal-enter {
+    opacity: 0;
+
+    #{$this}__content {
+      transform: scale(0);
+    }
+  }
+
+  &.modal-enter-done {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.2s;
+
+    #{$this}__content {
+      transform: scale(1);
+      transition: all 0.2s;
+    }
+  }
+
+
+  &.modal-exit {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.2s;
+
+    #{$this}__content {
+      transform: scale(1);
+      transition: all 0.2s;
+    }
+  }
+
+  &.modal-exit-active {
+    opacity: 0;
+
+    #{$this}__content {
+      transform: scale(0);
+    }
   }
 }
