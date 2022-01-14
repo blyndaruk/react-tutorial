@@ -6,13 +6,13 @@ import BaseInput from '../UI/Input';
 import './AddPostForm.scss'
 
 const AddPostForm = (props) => {
-  const [post, setPost] = useState({ title: '', description: '' })
+  const [post, setPost] = useState({ title: '', body: '' })
 
   function addPost(e) {
     e.preventDefault()
-    if (!post.title || !post.description) return
+    if (!post.title || !post.body) return
     props.onSubmit({ ...post, id: Date.now() })
-    setPost({ title: '', description: '' })
+    setPost({ title: '', body: '' })
   }
 
   return (
@@ -28,8 +28,8 @@ const AddPostForm = (props) => {
         id="description"
         type="text"
         placeholder="Write description"
-        value={post.description}
-        onChange={(e) => setPost({ ...post, description: e.target.value })}
+        value={post.body}
+        onChange={(e) => setPost({ ...post, body: e.target.value })}
       />
       <div className="add-post-form__actions">
         <BaseButton type="submit" onClick={addPost}>
