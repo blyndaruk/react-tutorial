@@ -15,7 +15,7 @@ const PostsFilter = ({ filter, setFilter, setModalActive }) => {
         value={sort}
         options={[
           { name: 'By Title', value: 'title' },
-          { name: 'By Description', value: 'description' }
+          { name: 'By Description', value: 'body' }
         ]}
         defaultValue="Sort By"
         onChange={(method) => setFilter({ ...filter, sort: method })}

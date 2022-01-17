@@ -18,7 +18,7 @@ const Post = forwardRef((
 
   return (
     <div className="post" ref={ref}>
-      {title && <h2 className="post__title">{title} <span style={{ fontSize: '70%' }}>(id:{id})</span></h2>}
+      {title && <h2 className="post__title">{id}: {title} <span style={{ fontSize: '70%' }}>(id:{id})</span></h2>}
       {body && (
         <div className="post__description">
           <p>{body}</p>

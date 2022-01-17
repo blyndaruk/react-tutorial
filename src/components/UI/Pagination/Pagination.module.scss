@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.is-active {
+    // just for modules test
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    padding: 4px;
+    border: 1px solid gray;
+    color: #000000;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+
+    &.is-active {
+      background-color: gray;
+      color: #ffffff;
+    }
+  }
+}
