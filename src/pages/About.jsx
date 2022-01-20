@@ -2,9 +2,11 @@ import React from 'react';
 
 const About = () => {
   return (
-    <h1>
-      Test about
-    </h1>
+    <div>
+      <div className="container">
+        <h1 style={{ textAlign: 'center' }}>About page</h1>
+      </div>
+    </div>
   );
 };
 

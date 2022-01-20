@@ -1,21 +1,40 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import About from './pages/About';
-import PostsPage from './pages/Posts';
-import Home from './pages/Home';
-import Header from './components/Header/Header';
+import { AuthContext } from './context';
+import Header from './components/Header';
+import AppRouter from './components/AppRouter';
+
+import './styles/app.scss'
 
 function App () {
+  const [isAuth, setIsAuth] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    if (localStorage.getItem('is_auth')) {
+      setIsAuth(true)
+      console.log(localStorage.getItem('is_auth'));
+    }
+    setIsLoading(false)
+  }, [])
+
   return (
-    <div>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/posts" element={<PostsPage />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </div>
+    <AuthContext.Provider
+      value={{
+        isAuth,
+        setIsAuth,
+        isLoading,
+      }}
+    >
+      <BrowserRouter>
+        <div className="app">
+          <Header />
+          <AppRouter />
+        </div>
+      </BrowserRouter>
+    </AuthContext.Provider>
+
   );
 }
 

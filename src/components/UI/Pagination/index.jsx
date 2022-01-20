@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import cssModule from './Pagination.module.scss'
 import classNames from 'classnames';
 import { usePaginationRange } from '../../../hooks/usePagination';
+import cssModule from './Pagination.module.scss'
 
 const Pagination = ({ updatePage, totalPages }) => {
   const range = usePaginationRange(totalPages)

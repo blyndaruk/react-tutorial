@@ -3,7 +3,9 @@ import React from 'react';
 const Home = () => {
   return (
     <div>
-      Home page
+      <div className="container">
+        <h1 style={{ textAlign: 'center' }}>Home page</h1>
+      </div>
     </div>
   );
 };

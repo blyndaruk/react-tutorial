@@ -42,7 +42,6 @@ function PostsPage () {
   }
 
   function updatePage (current) {
-    console.log(current);
     setCurrentPage(current)
   }
 
@@ -56,12 +55,9 @@ function PostsPage () {
         <PostsFilter filter={filter} setFilter={setFilter} setModalActive={setModalActive} />
         <hr />
         {postsError && <h2>Posts fetching error</h2>}
-        {isPostsLoading
-          ? <Loader width="120px" height="120px" />
-          : <Posts posts={sortedAndSearchedPosts} title="Some Index" deletePost={deletePost} />
-        }
-        {currentPage}
-        <Pagination updatePage={updatePage} totalPages={postsTotalPages} />
+        <Posts posts={sortedAndSearchedPosts} title="Some Index" deletePost={deletePost} />
+        {isPostsLoading && <Loader width="120px" height="120px" />}
+        {sortedAndSearchedPosts.length ? <Pagination updatePage={updatePage} totalPages={postsTotalPages} /> : ''}
         <Modal type="add-post" width="500px" active={modalActive} setActive={setModalActive}>
           <AddPostForm onSubmit={onSubmit} />
         </Modal>
