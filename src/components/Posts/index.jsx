@@ -2,7 +2,7 @@ import React from 'react';
 import Post from '../Post';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import './Posts.scss'
+import cssModule from './Posts.module.scss'
 
 const Posts = ({ posts, title, deletePost }) => {
 
@@ -19,7 +19,12 @@ const Posts = ({ posts, title, deletePost }) => {
         {posts.map((post) => (
           <CSSTransition
             key={post.id}
-            classNames="post"
+            classNames={{
+              enterActive: cssModule['post-enter'],
+              enterDone: cssModule['post-enter-active'],
+              exitActive: cssModule['post-exit-active'],
+              exitDone: cssModule['post-exit']
+            }}
             timeout={{
               appear: 0,
               enter: 0,
