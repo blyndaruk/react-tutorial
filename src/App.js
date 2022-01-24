@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { AuthContext } from './context';
-import Header from './components/Header';
+
 import AppRouter from './components/AppRouter';
+import Header from './components/Header';
+import Menu from './components/Menu';
 
 import './styles/app.scss'
 
@@ -29,6 +31,7 @@ function App () {
       <BrowserRouter>
         <div className="app">
           <Header />
+          <Menu />
           <AppRouter />
         </div>
       </BrowserRouter>

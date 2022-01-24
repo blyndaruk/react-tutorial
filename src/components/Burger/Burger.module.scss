@@ -1,0 +1,12 @@
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+
+  svg {
+    display: block;
+  }
+}

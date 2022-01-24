@@ -1,0 +1,15 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  width: 300px; // temp
+  height: 100vh;
+  transition: all .3s ease;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+
+  &.is-open {
+    transform: translateX(0);
+  }
+}
